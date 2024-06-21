@@ -1,6 +1,7 @@
 package kr.sparta.movieperonalize.recommand;
 
 import kr.sparta.movieperonalize.recommand.dto.MovieDto;
+import kr.sparta.movieperonalize.recommand.enumtype.MovieCountry;
 import kr.sparta.movieperonalize.recommand.enumtype.MovieGenre;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,5 +21,10 @@ public class RecommendController {
     @GetMapping("/movies/genre/{genre}")
     public Flux<MovieDto> getMoviesByGenre(@PathVariable MovieGenre genre) {
         return recommendService.getMoviesByGenre(genre);
+    }
+
+    @GetMapping("/movies/country/{country}")
+    public Flux<MovieDto> getMoviesByCountry(@PathVariable MovieCountry country) {
+        return recommendService.getMoviesByCountry(country);
     }
 }
