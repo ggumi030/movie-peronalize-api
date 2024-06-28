@@ -1,5 +1,6 @@
 package kr.sparta.movieperonalize.recommand;
 
+import java.util.List;
 import kr.sparta.movieperonalize.recommand.dto.MovieDto;
 import kr.sparta.movieperonalize.recommand.enumtype.MovieCountry;
 import kr.sparta.movieperonalize.recommand.enumtype.MovieGenre;
@@ -19,7 +20,7 @@ public class RecommendController {
     }
 
     @GetMapping("/movies/genre/{genre}")
-    public Flux<MovieDto> getMoviesByGenre(@PathVariable MovieGenre genre) {
+    public List<MovieDto> getMoviesByGenre(@PathVariable MovieGenre genre) {
         return recommendService.getMoviesByGenre(genre);
     }
 
