@@ -76,6 +76,8 @@ public class RecommendService {
             }
         }
 
+        movieDtos = movieDtos.stream().filter(movieDto -> movieDto.getGenre().contains(movieGenre.getKorean())).toList();
+
         stopWatch.stop();
         log.info(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
         return movieDtos;
